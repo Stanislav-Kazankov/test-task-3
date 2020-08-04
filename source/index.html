@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Тестовое задание</title>
+  <link href="css/normalize.min.css" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <section class="divs">
+      <h2 class="visually-hidden">Разделы</h2>
+      <section class="divs__schedule schedule">
+        <h3 class="schedule__h3 h3">График работы предприятия</h3>
+        <input class="time-field time-field--start" type="text" id="start-time-field" data-bind="value: startTimeStr, valueUpdate: 'keyup'"></input>
+        <input class="time-field time-field--end" type="text" id="end-time-field" data-bind="value: endTimeStr, valueUpdate: 'keyup'"></input>
+        <article class="schedule__chart chart" data-bind="style: {width: chartWidth()}">
+          <ul class="chart__head-col head-col">
+            <li class="head-col__cell">
+              Пн
+            </li>
+            <li class="head-col__cell">
+              Вт
+            </li>
+            <li class="head-col__cell">
+              Ср
+            </li>
+            <li class="head-col__cell">
+              Чт
+            </li>
+            <li class="head-col__cell">
+              Пт
+            </li>
+            <li class="head-col__cell">
+              Сб
+            </li>
+            <li class="head-col__cell">
+              Вс
+            </li>
+          </ul>
+          <div class="chart__table table">
+            <ul class="table__head">
+            </ul>
+            <ul class="table__body" data-bind="foreach: scheduleHours()">
+            </ul>
+          </div>
+        </article>
+        <button class="btn"></button>
+      </section>
+    </section>
+    </main>
+    <script src="js/knockout-3.5.1.min.js"></script>
+    <script src="js/view-model.min.js"></script>
+  </body>
+</html>
