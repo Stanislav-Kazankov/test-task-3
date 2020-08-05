@@ -11,13 +11,17 @@
       <h2 class="visually-hidden">Разделы</h2>
       <section class="divs__schedule schedule">
         <h3 class="schedule__h3 h3">График работы предприятия</h3>
-        <label class="visually-hidden" for="start-time-field">Левая граница временного диапазона:</label>
-        <div class="schedule__time-field-wrap time-field-wrap">
-          <input class="time-field-wrap__time-field time-field-wrap__time-field--start" type="time" id="start-time-field" data-bind="value: startTimeStr"></input>
-        </div>
-        <label class="visually-hidden" for="end-time-field">Правая граница временного диапазона:</label>
-        <div class="schedule__time-field-wrap time-field-wrap">
-          <input class="time-field-wrap__time-field time-field-wrap__time-field--end" type="time" id="end-time-field" data-bind="value: endTimeStr"></input>
+        <div class="shedule__range range">
+          <span class="range__caption">Задать интервал таблицы</span>
+          <label class="visually-hidden" for="start-time-field">Левая граница временного диапазона:</label>
+          <div class="range__time-field-wrap time-field-wrap">
+            <input class="time-field-wrap__time-field time-field-wrap__time-field--start" type="time" id="start-time-field" data-bind="value: startTimeStr"></input>
+          </div>
+          <span class="range__dash">&mdash;</span>
+          <label class="visually-hidden" for="end-time-field">Правая граница временного диапазона:</label>
+          <div class="range__time-field-wrap time-field-wrap">
+            <input class="time-field-wrap__time-field time-field-wrap__time-field--end" type="time" id="end-time-field" data-bind="value: endTimeStr"></input>
+          </div>
         </div>
         <article class="schedule__chart chart" data-bind="style: {width: chartWidth()}">
           <ul class="chart__head-col head-col">
@@ -53,6 +57,25 @@
         <button class="btn"></button>
       </section>
     </section>
+    <footer class="footer">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="img/logo@1x.webp 1x,
+                img/logo@1.5x.webp 1.5x,
+                img/logo@2x.webp 2x,
+                img/logoe@3x.webp 3x,
+                img/logoe@4x.webp 4x">
+            <img class="footer__logo-img" width="89.49" height="16"
+              alt='Логотип компании "Лукин"'
+              src="img/logo@1x.png"
+              srcset="img/logo@1.5x.png 1.5x,
+                img/logo@2x.png 2x,
+                img/logo@3x.png 3x,
+                img/logo@4x.webp 4x"
+              sizes="89.49px">
+          </picture>
+    </footer>
     </main>
     <script src="js/knockout-3.5.1.min.js"></script>
     <script src="js/view-model.min.js"></script>
