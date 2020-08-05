@@ -13,7 +13,7 @@
   var CELL_WIDTH = MAX_TABLE_WIDTH / DATA_COL_COUNT;
   var DATA_CELL_COUNT = DATA_ROW_COUNT * DATA_COL_COUNT;
   var MIN_PER_HOUR = 60;
-  var timeFieldMask = new RegExp('\[0-2][0-3]:[0-5][0-9]');
+  var timeFieldMask = /^[0-2][0-9]:[0-5][0-9]$/;
 
   var getCellOpenTag = function (cellKind) {
     var classes = 'table__cell table__cell--' + cellKind;
@@ -131,25 +131,10 @@
     }
 
     me.startTimeStr.subscribe(function (newValue) {
-      var processedNewValue = '';
-      var i;
-      for (i = 0; i < prevStartTimeStr.length; i++) {
-        if (newValue[i] === prevStartTimeStr[i]) {
-          processedNewValue += newValue[i];
-        } else {
-          break;
-        }
-      }
-      processedNewValue += newValue[i];
-      for (var j = i + 2; j < newValue.length; j++) {
-        processedNewValue += newValue[j];
-      }
-      if (!timeFieldMask.test(processedNewValue)) {
+      if (!timeFieldMask.test(newValue)) {
         me.startTimeStr(prevStartTimeStr);
         return;
       }
-
-      me.startTimeStr(processedNewValue);
 
       var prevLeftShowCellIndex = getElemIndex(headCells, prevLeftShowCell);
       if (prevLeftShowCellIndex % 2) {
@@ -178,6 +163,7 @@
       prevStartTimeStr = newValue;
     });
 
+    var prevEndTimeStr = DEFAULT_END_TIME_STR;
     var headCellsCopy = tableCopy.querySelectorAll('.table__cell--head');
     var prevHCells = headCells;
     var prevRightShowCell = headCells[22];
@@ -188,7 +174,7 @@
     }
 
     me.endTimeStr.subscribe(function (newValue) {
-      if (!timeFieldMask.test()) {
+      if (!timeFieldMask.test(newValue)) {
         me.endTimeStr(prevEndTimeStr);
         return;
       }

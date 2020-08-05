@@ -11,8 +11,14 @@
       <h2 class="visually-hidden">Разделы</h2>
       <section class="divs__schedule schedule">
         <h3 class="schedule__h3 h3">График работы предприятия</h3>
-        <input class="time-field time-field--start" type="text" id="start-time-field" data-bind="value: startTimeStr, valueUpdate: 'keyup'"></input>
-        <input class="time-field time-field--end" type="text" id="end-time-field" data-bind="value: endTimeStr, valueUpdate: 'keyup'"></input>
+        <label class="visually-hidden" for="start-time-field">Левая граница временного диапазона:</label>
+        <div class="schedule__time-field-wrap time-field-wrap">
+          <input class="time-field-wrap__time-field time-field-wrap__time-field--start" type="time" id="start-time-field" data-bind="value: startTimeStr"></input>
+        </div>
+        <label class="visually-hidden" for="end-time-field">Правая граница временного диапазона:</label>
+        <div class="schedule__time-field-wrap time-field-wrap">
+          <input class="time-field-wrap__time-field time-field-wrap__time-field--end" type="time" id="end-time-field" data-bind="value: endTimeStr"></input>
+        </div>
         <article class="schedule__chart chart" data-bind="style: {width: chartWidth()}">
           <ul class="chart__head-col head-col">
             <li class="head-col__cell">
