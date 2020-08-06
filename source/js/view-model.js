@@ -11,9 +11,9 @@
   var MAX_TABLE_WIDTH = DAY_IN_MS / MS_PER_PIXEL;
   var MAX_CHART_WIDTH = HEAD_COL_WIDTH + MAX_TABLE_WIDTH;
   var CELL_WIDTH = MAX_TABLE_WIDTH / DATA_COL_COUNT;
+  var CELL_BORDER_WIDTH = 1;
   var DATA_CELL_COUNT = DATA_ROW_COUNT * DATA_COL_COUNT;
   var MIN_PER_HOUR = 60;
-  var timeFieldMask = /^[0-2][0-9]:[0-5][0-9]$/;
 
   var getCellOpenTag = function (cellKind) {
     var classes = 'table__cell table__cell--' + cellKind;
@@ -84,7 +84,9 @@
     me.endTimeStr = ko.observable(DEFAULT_END_TIME_STR);
 
     me.timeDiffInPixels = ko.computed(function () {
-      return (strToTime(me.endTimeStr()) - strToTime(me.startTimeStr())) / MS_PER_PIXEL;
+      var diff = strToTime(me.endTimeStr()) - strToTime(me.startTimeStr());
+
+      return (diff !== 0) ? diff / MS_PER_PIXEL : DAY_IN_MS / MS_PER_PIXEL;
     }, me);
 
     function strToTime(str) {
@@ -92,7 +94,10 @@
     }
 
     me.chartWidth = ko.computed(function () {
-      return (me.timeDiffInPixels() >= 0) ? HEAD_COL_WIDTH + me.timeDiffInPixels() : MAX_CHART_WIDTH + me.timeDiffInPixels();
+      var diff = me.timeDiffInPixels();
+      var diffMinusBorder = diff - CELL_BORDER_WIDTH;
+
+      return (diff >= 0) ? HEAD_COL_WIDTH + diffMinusBorder: MAX_CHART_WIDTH + diffMinusBorder;
     }, me);
 
     me.tableOffset = ko.computed(function () {
@@ -101,7 +106,6 @@
       return offset;
     }, me);
 
-    var prevStartTimeStr = DEFAULT_START_TIME_STR;
     var headCells = table.querySelectorAll('.table__cell--head');
     var prevLeftShowCell = headCells[0];
 
@@ -131,11 +135,6 @@
     }
 
     me.startTimeStr.subscribe(function (newValue) {
-      if (!timeFieldMask.test(newValue)) {
-        me.startTimeStr(prevStartTimeStr);
-        return;
-      }
-
       var prevLeftShowCellIndex = getElemIndex(headCells, prevLeftShowCell);
       if (prevLeftShowCellIndex % 2) {
         prevLeftShowCell.style.paddingRight = prevLeftShowCell.style.paddingLeft = '3px';
@@ -160,10 +159,8 @@
         }
       }
       prevLeftShowCell = leftShowCell;
-      prevStartTimeStr = newValue;
     });
 
-    var prevEndTimeStr = DEFAULT_END_TIME_STR;
     var headCellsCopy = tableCopy.querySelectorAll('.table__cell--head');
     var prevHCells = headCells;
     var prevRightShowCell = headCells[22];
@@ -174,11 +171,6 @@
     }
 
     me.endTimeStr.subscribe(function (newValue) {
-      if (!timeFieldMask.test(newValue)) {
-        me.endTimeStr(prevEndTimeStr);
-        return;
-      }
-
       var prevRightShowCellIndex = getElemIndex(prevHCells, prevRightShowCell);
       if (prevRightShowCellIndex % 2) {
         if (prevHCells[prevRightShowCellIndex - 1].innerHTML !== '') {
@@ -190,9 +182,9 @@
       var hCells = (getCellIndexByTime(me.startTimeStr()) <= getCellIndexByTime(newValue)) ? headCells : headCellsCopy;
       var rightShowCellIndex = getCellIndexByTime(newValue);
       var rightShowCell = hCells[rightShowCellIndex];
-      if (rightShowCellIndex % 2) {
-        var minutes = getMinutes(newValue);
-        if (minutes < 45) {
+      var minutes = getMinutes(newValue);
+      if (rightShowCellIndex % 2 && minutes > 0) {
+        if (minutes < 49) {
           replaceInnerHTML(hCells[rightShowCellIndex], hCells[rightShowCellIndex - 1]);
           hCells[rightShowCellIndex - 1].style.textAlign = 'right';
         }
