@@ -195,6 +195,20 @@
     me.invertHour = function (item) {
       item.working(!item.working());
     }
+
+    function fillHours (working) {
+      for (var i = 0; i < DATA_CELL_COUNT; i++) {
+        me.scheduleHours()[i].working(working);
+      }
+    }
+
+    me.fillHoursAuto = function () {
+      fillHours(true);
+    }
+
+    me.clearHours = function () {
+      fillHours(false);
+    }
   }
 
   ko.applyBindings(new ScheduleHoursViewModel());

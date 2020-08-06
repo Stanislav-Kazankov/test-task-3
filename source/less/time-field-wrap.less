@@ -2,9 +2,22 @@
   position: relative;
 
   width: 42px;
+
+  @-moz-document url-prefix() {
+    width: 37px;
+  }
+
   height: 40px;
 
+  @-moz-document url-prefix() {
+    height: 31px;
+  }
+
   overflow-x: hidden;
+
+  @-moz-document url-prefix() {
+    border-bottom: 1px solid @grey1;
+  }
 
   ::after {
     content: '';
@@ -22,6 +35,13 @@
 }
 
 .time-field-wrap__time-field {
+  /* Firefox */
+  @-moz-document url-prefix() {
+    margin-left: -4px;
+
+    letter-spacing: -1pt;
+  }
+
   border: none;
 
   outline: none;
