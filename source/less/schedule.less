@@ -1,17 +1,31 @@
 .schedule {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
+  min-width: 764px;
   width: auto;
-  min-width: 310px;
-  max-width: 1030px;
   min-height: 525px;
-  padding-top: 56px;
+  padding-top: 57px;
+  padding-bottom: 63px;
+  padding-left: 100px;
+  padding-right: 99px;
 
   background-color: @white;
+  border-radius: 6px;
+  box-shadow: 0px 1px 4px rgba(0, 15, 38, 0.1);
 }
 
 .schedule__h3 {
   margin-top: 0;
   margin-bottom: 34px;
+}
+
+.schedule__chart {
+  align-self: center;
+}
+
+.schedule__panel {
+  align-self: flex-end;
+  .make-flex-sb();
+  width: 310px;
 }

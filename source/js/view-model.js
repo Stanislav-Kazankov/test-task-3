@@ -3,8 +3,7 @@
 (function () {
   var DATA_ROW_COUNT = 7;
   var DATA_COL_COUNT = 24;
-  var DEFAULT_START_TIME_STR = '00:00';
-  var DEFAULT_END_TIME_STR = '23:59';
+  var DEFAULT_TIME_STR = '00:00';
   var DAY_IN_MS = 24 * 60 * 60 * 1000;
   var MS_PER_PIXEL = (60 * 60 * 1000) / 34;
   var HEAD_COL_WIDTH = document.querySelector('.chart__head-col').offsetWidth;
@@ -74,14 +73,8 @@
       me.working = ko.observable(initWorking);
     }
 
-    var originalScheduleHours = new Array();
-
-    for (var i = 0; i < DATA_CELL_COUNT; i++) {
-      originalScheduleHours.push(new ScheduleHour(true));
-    }
-
-    me.startTimeStr = ko.observable(DEFAULT_START_TIME_STR);
-    me.endTimeStr = ko.observable(DEFAULT_END_TIME_STR);
+    me.startTimeStr = ko.observable(DEFAULT_TIME_STR);
+    me.endTimeStr = ko.observable(DEFAULT_TIME_STR);
 
     me.timeDiffInPixels = ko.computed(function () {
       var diff = strToTime(me.endTimeStr()) - strToTime(me.startTimeStr());
@@ -101,7 +94,7 @@
     }, me);
 
     me.tableOffset = ko.computed(function () {
-      var offset = -(strToTime(me.startTimeStr()) - strToTime(DEFAULT_START_TIME_STR)) / MS_PER_PIXEL;
+      var offset = -(strToTime(me.startTimeStr()) - strToTime(DEFAULT_TIME_STR)) / MS_PER_PIXEL;
 
       return offset;
     }, me);
@@ -193,7 +186,11 @@
       prevRightShowCell = rightShowCell;
     });
 
-    me.scheduleHours = ko.observableArray(originalScheduleHours);
+    me.scheduleHours = ko.observableArray(new Array());
+
+    for (var i = 0; i < DATA_CELL_COUNT; i++) {
+      me.scheduleHours().push(new ScheduleHour(true));
+    }
 
     me.invertHour = function (item) {
       item.working(!item.working());

@@ -16,8 +16,12 @@
   .make-center();
 }
 
-.make-shadow() {
-  .accordeon__item-top--level1 {
-    border-bottom-color: @green3;
-  }
+.make-flex() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.make-flex-sb() {
+  .make-flex();
+  justify-content: space-between;
 }

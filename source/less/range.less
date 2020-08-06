@@ -1,14 +1,19 @@
 .range {
-  display: flex;
-
-  justify-content: space-between;
+  .make-flex-sb();
   width: 304px;
+  margin-bottom: 21px;
 }
 
 .range__caption {
   width: 188px;
 
   text-align: left;
+}
+
+.range__body {
+  .make-flex-sb();
+  justify-content: space-between;
+  width: 108px;
 }
 
 .range__time-field-wrap {
