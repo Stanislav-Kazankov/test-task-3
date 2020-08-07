@@ -7,73 +7,119 @@
   <link href="css/style.min.css" rel="stylesheet">
   </head>
   <body>
-    <div class="sprt-cont">
+    <div class="sprite-cont">
       <include src="build/img/sprite.svg"></include>
     </div>
     <section class="divs">
-      <h2 class="visually-hidden">Разделы</h2>
-      <section class="divs__schedule schedule">
-        <h3 class="schedule__h3 h3">График работы предприятия</h3>
-        <div class="shedule__range range">
-          <span class="range__caption">Задать интервал таблицы</span>
-          <div class="range__body">
-            <label class="visually-hidden" for="start-time-field">Левая граница временного диапазона:</label>
-            <div class="range__time-field-wrap time-field-wrap">
-              <input class="time-field-wrap__time-field time-field-wrap__time-field--start" type="time" id="start-time-field" data-bind="value: startTimeStr" required></input>
-            </div>
-            <span class="range__dash">&mdash;</span>
-            <label class="visually-hidden" for="end-time-field">Правая граница временного диапазона:</label>
-            <div class="range__time-field-wrap time-field-wrap">
-              <input class="time-field-wrap__time-field time-field-wrap__time-field--end" type="time" id="end-time-field" data-bind="value: endTimeStr" required></input>
-            </div>
-          </div>
-        </div>
-        <article class="schedule__chart chart" data-bind="style: {width: chartWidth()}">
-          <ul class="chart__head-col head-col">
-            <li class="head-col__cell">
-              Пн
-            </li>
-            <li class="head-col__cell">
-              Вт
-            </li>
-            <li class="head-col__cell">
-              Ср
-            </li>
-            <li class="head-col__cell">
-              Чт
-            </li>
-            <li class="head-col__cell">
-              Пт
-            </li>
-            <li class="head-col__cell">
-              Сб
-            </li>
-            <li class="head-col__cell">
-              Вс
-            </li>
-          </ul>
-          <div class="chart__table table">
-            <ul class="table__head">
-            </ul>
-            <ul class="table__body" data-bind="foreach: scheduleHours()">
-            </ul>
-          </div>
-        </article>
-        <div class="schedule__panel">
-          <button class="schedule__btn btn btn--fill btn--auto" data-bind="click: fillHoursAuto">
-            <svg class="btn__ok-svg" aria-hidden="true" focusable="false" width="15" height="10">
-              <use xlink:href="#icon-ok"></use>
-            </svg>
-            <span class="btn__caption">Заполнить автоматически</span>
+      <div class="divs__center">
+        <h2 class="visually-hidden">Разделы</h2>
+        <div class="divs__slide-switch slide-switch">
+          <button class="slide-switch__dot slide-switch__dot--left">
+            1
+            <span class="slide-switch__label">Тип предприятия</span>
           </button>
-          <button class="schedule__btn btn btn--fill btn--clear" data-bind="click: clearHours">
-            <svg class="btn__cancel-svg" aria-hidden="true" focusable="false" width="12" height="12">
-              <use xlink:href="#icon-cancel"></use>
-            </svg>
-            <span class="btn__caption">Очистить</span>
+          <div class="slide-switch__connector slide-switch__connector--left">
+          </div>
+          <button class="slide-switch__dot slide-switch__dot--left">
+            2
+            <span class="slide-switch__label">Категории</span>
+          </button>
+          <div class="slide-switch__connector slide-switch__connector--left slide-switch__connector--active">
+          </div>
+          <button class="slide-switch__dot slide-switch__dot--left slide-switch__dot--active">
+            3
+            <span class="slide-switch__label">График работы</span>
+          </button>
+          <div class="slide-switch__connector">
+          </div>
+          <button class="slide-switch__dot">
+            4
+            <span class="slide-switch__label">Оборот и нагрузка</span>
+          </button>
+          <div class="slide-switch__connector">
+          </div>
+          <button class="slide-switch__dot">
+            5
+            <span class="slide-switch__label">Должности</span>
+          </button>
+          <div class="slide-switch__connector">
+          </div>
+          <button class="slide-switch__dot">
+            6
+            <span class="slide-switch__label">Тип нагрузки</span>
           </button>
         </div>
-      </section>
+        <section class="divs__schedule schedule">
+          <h3 class="schedule__h3 h3">График работы предприятия</h3>
+          <div class="shedule__range range">
+            <span class="range__caption">Задать интервал таблицы</span>
+            <div class="range__body">
+              <label class="visually-hidden" for="start-time-field">Левая граница временного диапазона:</label>
+              <div class="range__time-field-wrap time-field-wrap">
+                <input class="time-field-wrap__time-field time-field-wrap__time-field--start" type="time" id="start-time-field" data-bind="value: startTimeStr" required></input>
+              </div>
+              <span class="range__dash">&mdash;</span>
+              <label class="visually-hidden" for="end-time-field">Правая граница временного диапазона:</label>
+              <div class="range__time-field-wrap time-field-wrap">
+                <input class="time-field-wrap__time-field time-field-wrap__time-field--end" type="time" id="end-time-field" data-bind="value: endTimeStr" required></input>
+              </div>
+            </div>
+          </div>
+          <article class="schedule__chart chart" data-bind="style: {width: chartWidth()}">
+            <ul class="chart__head-col head-col">
+              <li class="head-col__cell">
+                Пн
+              </li>
+              <li class="head-col__cell">
+                Вт
+              </li>
+              <li class="head-col__cell">
+                Ср
+              </li>
+              <li class="head-col__cell">
+                Чт
+              </li>
+              <li class="head-col__cell">
+                Пт
+              </li>
+              <li class="head-col__cell">
+                Сб
+              </li>
+              <li class="head-col__cell">
+                Вс
+              </li>
+            </ul>
+            <div class="chart__table table">
+              <ul class="table__head">
+              </ul>
+              <ul class="table__body" data-bind="foreach: scheduleHours()">
+              </ul>
+            </div>
+          </article>
+          <div class="schedule__panel">
+            <button class="schedule__btn btn btn--fill btn--auto" data-bind="click: fillHoursAuto">
+              <svg class="btn__ok-svg" aria-hidden="true" focusable="false" width="15" height="10">
+                <use xlink:href="#icon-ok"></use>
+              </svg>
+              <span class="btn__caption">Заполнить автоматически</span>
+            </button>
+            <button class="schedule__btn btn btn--fill btn--clear" data-bind="click: clearHours">
+              <svg class="btn__cancel-svg" aria-hidden="true" focusable="false" width="12" height="12">
+                <use xlink:href="#icon-cancel"></use>
+              </svg>
+              <span class="btn__caption">Очистить</span>
+            </button>
+          </div>
+        </section>
+        <div class="divs__panel">
+          <button class="schedule__btn btn btn--nav btn--prev">
+            Назад
+          </button>
+          <button class="schedule__btn btn btn--nav btn--next">
+            Далее
+          </button>
+        </div>
+      </div>
     </section>
     <footer class="footer">
           <picture>
