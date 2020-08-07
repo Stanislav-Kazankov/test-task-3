@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Тестовое задание</title>
+  <link href="css/normalize.min.css" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="sprite-cont">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-cancel" viewBox="0 0 12 12">
+<path d="M1.2553 11.4588C0.864771 11.0683 0.864771 10.4351 1.2553 10.0446L10.2928 1.00566C10.6833 0.615137 11.3165 0.615138 11.707 1.00566C12.0975 1.39619 12.0975 2.02935 11.707 2.41988L2.66951 11.4588C2.27898 11.8493 1.64582 11.8493 1.2553 11.4588Z" fill="#FF238D"></path>
+<path d="M11.6132 11.3963C12.0038 11.0058 12.0038 10.3726 11.6132 9.9821L2.63679 1.00566C2.24627 0.615137 1.6131 0.615138 1.22258 1.00566C0.832056 1.39619 0.832056 2.02935 1.22258 2.41988L10.199 11.3963C10.5896 11.7868 11.2227 11.7868 11.6132 11.3963Z" fill="#FF238D"></path>
+</symbol><symbol id="icon-ok" viewBox="0 0 15 10">
+<path d="M5.26573 9.68389C4.8752 9.29336 4.8752 8.6602 5.26573 8.26967L13.0858 0.44951C13.4763 0.0589853 14.1095 0.058985 14.5 0.449509C14.8905 0.840034 14.8905 1.4732 14.5 1.86372L6.67994 9.68389C6.28942 10.0744 5.65625 10.0744 5.26573 9.68389Z" fill="#12C971"></path>
+<path d="M6.67994 9.68389C7.07047 9.29336 7.07041 8.6602 6.67988 8.26967L2.49995 4.08977C2.10943 3.69925 1.47626 3.69925 1.08574 4.08977C0.695216 4.4803 0.695216 5.11346 1.08574 5.50398L5.26573 9.68389C5.65625 10.0744 6.28942 10.0744 6.67994 9.68389Z" fill="#12C971"></path>
+</symbol><symbol id="icon-web-cam" viewBox="0 0 20 20">
+<path d="M10 18C12.1217 18 14.1566 17.1571 15.6569 15.6569C17.1571 14.1566 18 12.1217 18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 12.1217 2.84285 14.1566 4.34315 15.6569C5.84344 17.1571 7.87827 18 10 18ZM10 20C4.477 20 0 15.523 0 10C0 4.477 4.477 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20ZM13.446 7.968C13.1017 7.38474 12.6153 6.89826 12.032 6.554L15.657 2.929L17.071 4.343L13.446 7.968ZM7.968 13.446L4.343 17.071L2.929 15.657L6.554 12.032C6.89826 12.6153 7.38474 13.1017 7.968 13.446ZM7.968 6.554C7.38474 6.89826 6.89826 7.38474 6.554 7.968L2.929 4.343L4.343 2.93L7.968 6.555V6.554ZM12.704 12.948C11.9332 13.655 10.9162 14.032 9.87079 13.9981C8.82541 13.9643 7.83488 13.5223 7.11142 12.767C6.38797 12.0116 5.98916 11.0029 6.00044 9.95706C6.01172 8.9112 6.4322 7.91136 7.17178 7.17178C7.91136 6.4322 8.9112 6.01172 9.95706 6.00044C11.0029 5.98916 12.0116 6.38797 12.767 7.11142C13.5223 7.83488 13.9643 8.82541 13.9981 9.87079C14.032 10.9162 13.655 11.9332 12.948 12.704C13.141 12.494 13.307 12.269 13.446 12.032L16.32 14.906C15.9093 15.4343 15.4343 15.9093 14.906 16.32L12.032 13.446C12.269 13.306 12.494 13.141 12.704 12.948ZM10 12C10.5304 12 11.0391 11.7893 11.4142 11.4142C11.7893 11.0391 12 10.5304 12 10C12 9.46957 11.7893 8.96086 11.4142 8.58579C11.0391 8.21071 10.5304 8 10 8C9.46957 8 8.96086 8.21071 8.58579 8.58579C8.21071 8.96086 8 9.46957 8 10C8 10.5304 8.21071 11.0391 8.58579 11.4142C8.96086 11.7893 9.46957 12 10 12Z" fill="#8E9CBB"></path>
+</symbol></svg>
+    </div>
+    <section class="divs">
+      <div class="divs__center">
+        <h2 class="visually-hidden">Разделы</h2>
+        <div class="divs__slide-switch slide-switch">
+          <button class="slide-switch__dot slide-switch__dot--left">
+            1
+            <span class="slide-switch__label">Тип предприятия</span>
+          </button>
+          <div class="slide-switch__connector slide-switch__connector--left">
+          </div>
+          <button class="slide-switch__dot slide-switch__dot--left">
+            2
+            <span class="slide-switch__label">Категории</span>
+          </button>
+          <div class="slide-switch__connector slide-switch__connector--left slide-switch__connector--active">
+          </div>
+          <button class="slide-switch__dot slide-switch__dot--left slide-switch__dot--active">
+            3
+            <span class="slide-switch__label">График работы</span>
+          </button>
+          <div class="slide-switch__connector">
+          </div>
+          <button class="slide-switch__dot">
+            4
+            <span class="slide-switch__label">Оборот и нагрузка</span>
+          </button>
+          <div class="slide-switch__connector">
+          </div>
+          <button class="slide-switch__dot">
+            5
+            <span class="slide-switch__label">Должности</span>
+          </button>
+          <div class="slide-switch__connector">
+          </div>
+          <button class="slide-switch__dot">
+            6
+            <span class="slide-switch__label">Тип нагрузки</span>
+          </button>
+        </div>
+        <section class="divs__schedule schedule">
+          <h3 class="schedule__h3 h3">График работы предприятия</h3>
+          <div class="shedule__range range">
+            <span class="range__caption">Задать интервал таблицы</span>
+            <div class="range__body">
+              <label class="visually-hidden" for="start-time-field">Левая граница временного диапазона:</label>
+              <div class="range__time-field-wrap time-field-wrap">
+                <input class="time-field-wrap__time-field time-field-wrap__time-field--start" type="time" id="start-time-field" data-bind="value: startTimeStr" required="">
+              </div>
+              <span class="range__dash">&mdash;</span>
+              <label class="visually-hidden" for="end-time-field">Правая граница временного диапазона:</label>
+              <div class="range__time-field-wrap time-field-wrap">
+                <input class="time-field-wrap__time-field time-field-wrap__time-field--end" type="time" id="end-time-field" data-bind="value: endTimeStr" required="">
+              </div>
+            </div>
+          </div>
+          <article class="schedule__chart chart" data-bind="style: {width: chartWidth()}">
+            <ul class="chart__head-col head-col">
+              <li class="head-col__cell">
+                Пн
+              </li>
+              <li class="head-col__cell">
+                Вт
+              </li>
+              <li class="head-col__cell">
+                Ср
+              </li>
+              <li class="head-col__cell">
+                Чт
+              </li>
+              <li class="head-col__cell">
+                Пт
+              </li>
+              <li class="head-col__cell">
+                Сб
+              </li>
+              <li class="head-col__cell">
+                Вс
+              </li>
+            </ul>
+            <div class="chart__table table">
+              <ul class="table__head">
+              </ul>
+              <ul class="table__body" data-bind="foreach: scheduleHours()">
+              </ul>
+            </div>
+          </article>
+          <div class="schedule__panel">
+            <button class="schedule__btn btn btn--fill btn--auto" data-bind="click: fillHoursAuto">
+              <svg class="btn__ok-svg" aria-hidden="true" focusable="false" width="15" height="10">
+                <use xlink:href="#icon-ok"></use>
+              </svg>
+              <span class="btn__caption">Заполнить автоматически</span>
+            </button>
+            <button class="schedule__btn btn btn--fill btn--clear" data-bind="click: clearHours">
+              <svg class="btn__cancel-svg" aria-hidden="true" focusable="false" width="12" height="12">
+                <use xlink:href="#icon-cancel"></use>
+              </svg>
+              <span class="btn__caption">Очистить</span>
+            </button>
+          </div>
+        </section>
+        <div class="divs__panel">
+          <button class="schedule__btn btn btn--nav btn--prev">
+            Назад
+          </button>
+          <button class="schedule__btn btn btn--nav btn--next">
+            Далее
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__center">
+        <div class="footer__col footer__col--company-info">
+          <div class="footer__col footer__col--logo">
+            <picture>
+              <source type="image/webp" srcset="img/logo@1x.webp 1x,
+                  img/logo@1.5x.webp 1.5x,
+                  img/logo@2x.webp 2x,
+                  img/logoe@3x.webp 3x,
+                  img/logoe@4x.webp 4x">
+              <img class="footer__logo-img" alt="Логотип компании &quot;Лукин&quot;" src="img/logo@1x.png" srcset="img/logo@1.5x.png 1.5x,
+                  img/logo@2x.png 2x,
+                  img/logo@3x.png 3x,
+                  img/logo@4x.webp 4x" sizes="90px">
+            </picture>
+          </div>
+          <div class="footer__col footer__col--copyrights">
+            &copy; Lookin, 2020
+          </div>
+        </div>
+        <div class="footer__col footer__col--tech-support">
+          <svg class="footer__web-cam-svg" aria-hidden="true" focusable="false" width="20" height="20">
+            <use xlink:href="#icon-web-cam"></use>
+          </svg>
+          <span class="footer__tech-support-caption">Техническая поддержка</span>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="js/knockout-3.5.1.min.js"></script>
+    <script src="js/view-model.min.js"></script>
+  </body>
+</html>
