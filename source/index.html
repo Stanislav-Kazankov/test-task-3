@@ -122,23 +122,38 @@
       </div>
     </section>
     <footer class="footer">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="img/logo@1x.webp 1x,
-                img/logo@1.5x.webp 1.5x,
-                img/logo@2x.webp 2x,
-                img/logoe@3x.webp 3x,
-                img/logoe@4x.webp 4x">
-            <img class="footer__logo-img" width="89.49" height="16"
-              alt='Логотип компании "Лукин"'
-              src="img/logo@1x.png"
-              srcset="img/logo@1.5x.png 1.5x,
-                img/logo@2x.png 2x,
-                img/logo@3x.png 3x,
-                img/logo@4x.webp 4x"
-              sizes="89.49px">
-          </picture>
+      <div class="footer__center">
+        <div class="footer__col footer__col--company-info">
+          <div class="footer__col footer__col--logo">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="img/logo@1x.webp 1x,
+                  img/logo@1.5x.webp 1.5x,
+                  img/logo@2x.webp 2x,
+                  img/logoe@3x.webp 3x,
+                  img/logoe@4x.webp 4x">
+              <img class="footer__logo-img"
+                alt='Логотип компании "Лукин"'
+                src="img/logo@1x.png"
+                srcset="img/logo@1.5x.png 1.5x,
+                  img/logo@2x.png 2x,
+                  img/logo@3x.png 3x,
+                  img/logo@4x.webp 4x"
+                sizes="90px">
+            </picture>
+          </div>
+          <div class="footer__col footer__col--copyrights">
+            &copy; Lookin, 2020
+          </div>
+        </div>
+        <div class="footer__col footer__col--tech-support">
+          <svg class="footer__web-cam-svg" aria-hidden="true" focusable="false" width="20" height="20">
+            <use xlink:href="#icon-web-cam"></use>
+          </svg>
+          <span class="footer__tech-support-caption">Техническая поддержка</span>
+        </div>
+      </div>
     </footer>
     </main>
     <script src="js/knockout-3.5.1.min.js"></script>

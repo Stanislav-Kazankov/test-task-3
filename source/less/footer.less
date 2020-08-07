@@ -1,0 +1,48 @@
+.footer {
+  min-height: 60px;
+  padding-top: 20px;
+  padding-bottom: 19px;
+
+  font-size: 14px;
+
+  border-top: 1px solid @grey;
+}
+
+.footer__center {
+  .make-flex-sb();
+  width: 956px;
+  min-height: 21px;
+  .make-center();
+}
+
+.footer__col {
+  min-height: inherit;
+
+  &--company-info {
+    .make-flex-sb();
+    width: 212px;
+  }
+
+  &--logo {
+    width: 90px;
+    padding-top: 1px;
+  }
+
+  &--copyrights {
+    width: 95px;
+    padding-top: 3px;
+  }
+
+  &--tech-support {
+    width: 187px;
+    .make-flex-sb();
+
+    color: @blue2;
+  }
+}
+
+.footer__tech-support-caption {
+  width: 159px;
+  min-height: inherit;
+  padding-top: 3px;
+}
